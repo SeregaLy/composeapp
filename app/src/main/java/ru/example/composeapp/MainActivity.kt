@@ -27,7 +27,11 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            ListItem(name = "Dayni", prof = "aktor")
+            Column() {
+                ListItem(name = "Dayni", prof = "aktor")
+                ListItem(name = "Dayni", prof = "aktor")
+                ListItem(name = "Dayni", prof = "aktor")
+            }
         }
     }
 }
@@ -42,7 +46,9 @@ private fun ListItem(name: String, prof: String) {
         elevation = 5.dp
     ) {
         Box() {
-            Row(verticalAlignment = Alignment.CenterVertically) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
                 Image(
                     painter = painterResource(id = R.drawable.uzn_1396981256),
                     contentDescription = "image",
@@ -53,7 +59,7 @@ private fun ListItem(name: String, prof: String) {
                         .clip(CircleShape)
                 )
 
-                Column() {
+                Column(modifier = Modifier.padding(start = 16.dp)) {
                     Text(text = name)
                     Text(text = prof)
                 }
